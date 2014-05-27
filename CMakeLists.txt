@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(hironx_tutorial)
 
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs moveit_commander nextage_ros_bridge rospy tf
+  geometry_msgs leap_motion moveit_commander nextage_ros_bridge rospy tf
 )
 
 catkin_python_setup()
@@ -19,7 +19,7 @@ catkin_python_setup()
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES hironx_tutorial
-  CATKIN_DEPENDS geometry_msgs nextage_ros_bridge moveit_commander rospy tf
+  CATKIN_DEPENDS geometry_msgs leap_motion moveit_commander nextage_ros_bridge rospy tf
 #  DEPENDS system_lib
 )
 
@@ -36,8 +36,8 @@ install(DIRECTORY scenes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
         USE_SOURCE_PERMISSIONS)
 install(DIRECTORY script DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} 
         USE_SOURCE_PERMISSIONS)
-install(DIRECTORY test DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} 
-        USE_SOURCE_PERMISSIONS)
+#install(DIRECTORY test DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} 
+#        USE_SOURCE_PERMISSIONS)
 
 #############
 ## Testing ##
