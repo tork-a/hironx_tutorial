@@ -2,8 +2,8 @@
 Changelog for package hironx_tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2014-05-27)
+------------------
 * Remove install target on empty test folder to pass ROS buildfarm.
 * Add leap_motion.
 * Contributors: Isaac Saito
