@@ -44,7 +44,7 @@ from moveit_commander import MoveGroupCommander
 import rospy
 
 #from hrpsys.hrpsys_config import *
-#import rtm
+from hrpsys import rtm
 from nextage_ros_bridge.nextage_client import NextageClient
 
 rospy.init_node("stampit_demo")
