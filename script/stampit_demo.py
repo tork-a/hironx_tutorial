@@ -44,7 +44,7 @@ from moveit_commander import MoveGroupCommander
 import rospy
 
 #from hrpsys.hrpsys_config import *
-#import rtm
+from hrpsys import rtm
 from nextage_ros_bridge.nextage_client import NextageClient
 
 rospy.init_node("stampit_demo")
@@ -205,7 +205,7 @@ def demo(robot_client_interface, num_repeat=1):
         robot_client_interface.setJointAnglesOfGroup(_LINKGRP_HEAD, [0, 40], 0.5)
 #        robot_client_interface.setTargetPoseRelative('rarm', 'RARM_JOINT5',
 #                                              dz=-(_z_hoist-_z_papergrab))
-        robot_client_interface.airhand_drawin_r()
+        robot_client_interface.airhand_r_drawin()
         time.sleep(_sleeptime_drawin)
         robot_client_interface.setJointAnglesOfGroup(_LINKGRP_HEAD, [0, 30], 0.5)
         for pos_next in _positions_rarm_1_1:
@@ -214,12 +214,12 @@ def demo(robot_client_interface, num_repeat=1):
                 continue
             plan_and_move(rarm, pos_next)
             time.sleep(_sleeptime_general)
-        robot_client_interface.airhand_release_r()
+        robot_client_interface.airhand_r_release()
         for pos_next in _positions_rarm_1_2:
             plan_and_move(rarm, pos_next)
             rospy.loginfo('SET {}th paper.'.format(i))
             time.sleep(_sleeptime_general)
-        robot_client_interface.airhand_keep_r()
+        robot_client_interface.airhand_r_keep()
         for pos_next in _positions_larm_2:
             plan_and_move(larm, pos_next)
             rospy.loginfo('STAMPED {}th paper.'.format(i))
@@ -227,7 +227,7 @@ def demo(robot_client_interface, num_repeat=1):
         for pos_next in _positions_rarm_2:
             plan_and_move(rarm, pos_next)
             time.sleep(_sleeptime_general)
-        robot_client_interface.airhand_drawin_r()
+        robot_client_interface.airhand_r_drawin()
         time.sleep(_sleeptime_drawin)
         for pos_next in _positions_rarm_3:
             if _HEAD10 == pos_next:
@@ -238,8 +238,8 @@ def demo(robot_client_interface, num_repeat=1):
                 continue
             plan_and_move(rarm, pos_next)
             time.sleep(_sleeptime_general)
-        robot_client_interface.airhand_release_r()
-        robot_client_interface.airhand_keep_r()
+        robot_client_interface.airhand_r_release()
+        robot_client_interface.airhand_r_keep()
         for pos_next in _positions_rarm_4:
             plan_and_move(rarm, pos_next)
             time.sleep(_sleeptime_general)
